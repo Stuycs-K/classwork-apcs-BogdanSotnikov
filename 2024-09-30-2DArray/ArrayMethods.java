@@ -10,7 +10,7 @@ public class ArrayMethods{
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}}).equals("[[2, 3, 4], [5, 6]]"));
     System.out.println(arrToString(new int[][] {{2, 3, 4}, {5, 6}, {2}, {}, {0, 2, 3}}).equals("[[2, 3, 4], [5, 6], [2], [], [0, 2, 3]]"));
 
-    System.out.println("arr2DSum test:");
+    System.out.println("\n arr2DSum test:");
     System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6, 7}}) == 27);
     System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {2}}) == 22);
     System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {}, {}}) == 9);
@@ -18,13 +18,13 @@ public class ArrayMethods{
     System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}}) == 20);
     System.out.println(arr2DSum(new int[][] {{2, 3, 4}, {5, 6}, {2}, {}, {0, 2, 3}}) == 27);
 
-    System.out.println("swapRC test:");
+    System.out.println("\n swapRC test:");
     System.out.println(arrToString(swapRC(new int [4][3])).equals(arrToString(new int[3][4])));
     System.out.println(arrToString(swapRC(new int [][] {{1, 2, 3, 4}, {5, 6, 7, 8}})).equals(arrToString(new int[][]{{1, 5}, {2, 6}, {3, 7}, {4, 8}})));
     System.out.println(arrToString(swapRC(new int [][] {{1, 2, 3}, {5, 6, 7}, {8, 9, 10}})).equals(arrToString(new int[][]{{1, 5, 8}, {2, 6, 9}, {3, 7, 10}})));
     System.out.println(arrToString(swapRC(new int [][] {{1, 2}, {3, 4}, {5, 6}, {7, 8}, {9, 10}})).equals(arrToString(new int[][]{{1, 3, 5, 7, 9}, {2, 4, 6, 8, 10}})));
 
-    System.out.println("replaceNegative tests:");
+    System.out.println("\n replaceNegative tests:");
     int[][] tested = new int[][] {{74}, {5}, {-2}, {-4}, {3}};
     System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
     replaceNegative(tested);
@@ -37,10 +37,37 @@ public class ArrayMethods{
     tested = new int[4][];
     System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
     replaceNegative(tested);
+    tested = new int[0][];
+    System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
+    replaceNegative(tested);
 
-    System.out.println("copy tests:");
+    System.out.println("\n copy tests:");
     int[][] orig = new int[0][];
     int[][] copy = copy(orig);
+    System.out.println("original: "+arrToString(orig));
+    System.out.println("copy: "+arrToString(copy));
+    orig = new int[9999][];
+    System.out.println("copy after editing original: "+arrToString(copy));
+    orig = new int[][]{{1}, {2}, {3}, {4}};
+    copy = copy(orig);
+    System.out.println("original: "+arrToString(orig));
+    System.out.println("copy: "+arrToString(copy));
+    orig = new int[9999][];
+    System.out.println("copy after editing original: "+arrToString(copy));
+    orig = new int[][]{{1, 9, 1, 1, 1}, {2, 8, 2, 1, 20}, {3, 7, 3, 2, 1}, {4, 6, 4, 3, 2}};
+    copy = copy(orig);
+    System.out.println("original: "+arrToString(orig));
+    System.out.println("copy: "+arrToString(copy));
+    orig = new int[9999][];
+    System.out.println("copy after editing original: "+arrToString(copy));
+    orig = new int[][]{{1000, 1, 6, 999}, {2}, {3}, {4, 600, -789}};
+    copy = copy(orig);
+    System.out.println("original: "+arrToString(orig));
+    System.out.println("copy: "+arrToString(copy));
+    orig = new int[9999][];
+    System.out.println("copy after editing original: "+arrToString(copy));
+    orig = new int[4][];
+    copy = copy(orig);
     System.out.println("original: "+arrToString(orig));
     System.out.println("copy: "+arrToString(copy));
     orig = new int[9999][];
@@ -150,6 +177,7 @@ public class ArrayMethods{
         out[i] = null;
       else
       {
+        out[i] = new int[nums[i].length];
         for(int j = 0; j<nums[i].length;j++)
         {
           out[i][j] = nums[i][j];
