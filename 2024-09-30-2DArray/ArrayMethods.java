@@ -37,6 +37,14 @@ public class ArrayMethods{
     tested = new int[4][];
     System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
     replaceNegative(tested);
+
+    System.out.println("copy tests:");
+    int[][] orig = new int[0][];
+    int[][] copy = copy(orig);
+    System.out.println("original: "+arrToString(orig));
+    System.out.println("copy: "+arrToString(copy));
+    orig = new int[9999][];
+    System.out.println("copy after editing original: "+arrToString(copy));
   }
 
   public static String arrToString(int[] nums){
@@ -98,11 +106,6 @@ public class ArrayMethods{
     return out;
   }
 
-  //3. Modify a given 2D array of integer as follows:
-  //Replace all the negative values:
-  //-When the row number is the same as the column number replace
-  //that negative with the value 1
-  //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals)
   {
     int[][] out = new int[vals.length][];
@@ -139,6 +142,21 @@ public class ArrayMethods{
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    return null;//placeholder so it compiles
+    int[][] out = new int[nums.length][];
+
+    for(int i = 0; i<nums.length;i++)
+    {
+      if (nums[i] == null)
+        out[i] = null;
+      else
+      {
+        for(int j = 0; j<nums[i].length;j++)
+        {
+          out[i][j] = nums[i][j];
+        }
+      }
+    }
+
+    return out;
   }
 }
