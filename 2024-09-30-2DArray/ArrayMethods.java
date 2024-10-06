@@ -25,7 +25,18 @@ public class ArrayMethods{
     System.out.println(arrToString(swapRC(new int [][] {{1, 2}, {3, 4}, {5, 6}, {7, 8}, {9, 10}})).equals(arrToString(new int[][]{{1, 3, 5, 7, 9}, {2, 4, 6, 8, 10}})));
 
     System.out.println("replaceNegative tests:");
-    replaceNegative(new int[][] {{74}, {5}, {-2}, {-4}, {3}});
+    int[][] tested = new int[][] {{74}, {5}, {-2}, {-4}, {3}};
+    System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
+    replaceNegative(tested);
+    tested = new int[][] {{-2, 3, 4, -6}, {5, -59, 2746, -444}, {-2, 3, -50, 488}, {-4, 1, 1, -1}};
+    System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
+    replaceNegative(tested);
+    tested = new int[][] {{74, 0, 0, 0, 0, 2434, -4}, {5}, {-2, 3, -999}, {-4}, {3}};
+    System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
+    replaceNegative(tested);
+    tested = new int[4][];
+    System.out.println("Result of replaceNegative("+arrToString(tested)+"):");
+    replaceNegative(tested);
   }
 
   public static String arrToString(int[] nums){
@@ -98,22 +109,28 @@ public class ArrayMethods{
 
     for (int i = 0; i<vals.length; i++)
     {
-      for (int j = 0; j<vals[i].length; j++)
+      if (vals[i] == null)
+        out[i] = null;
+      else
       {
-        if (vals[i][j]<0)
+        out[i] = new int[vals[i].length];
+        for (int j = 0; j<vals[i].length; j++)
         {
-          if (j == i)
+          if (vals[i][j]<0)
           {
-            out[i][j] = 1;
+            if (j == i)
+            {
+              out[i][j] = 1;
+            }
+            else
+              out[i][j] = 0;
           }
           else
-            out[i][j] = 0;
+            out[i][j] = vals[i][j];
         }
-        else
-          out[i][j] = vals[i][j];
       }
     }
-    System.out.println(out);
+    System.out.println(arrToString(out));
   }
 
   //4. Make a copy of the given 2d array.
