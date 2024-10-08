@@ -19,6 +19,12 @@ public class ArrayDemo{
     System.out.println("countZeros2D("+Arrays.deepToString(tested)+") = "+countZeros2D(tested));
     tested = new int[][] {{1, 3, 4}, {5, 5, 5}, {1, 2, 9}};
     System.out.println("countZeros2D("+Arrays.deepToString(tested)+") = "+countZeros2D(tested));
+
+    System.out.println("\n htmlTable test:");
+    tested = new int[3][3];
+    System.out.println("htmlTable("+Arrays.deepToString(tested)+") = "+htmlTable(tested));
+    tested = new int[][] {{0}, {0, 0, 0}, {1, 0}};
+    System.out.println("htmlTable("+Arrays.deepToString(tested)+") = "+htmlTable(tested));
   }
 
   public static String arrToString(int[] ary){
@@ -144,13 +150,20 @@ public class ArrayDemo{
     return out;
   }
 
-  //6. Make an HTML table by putting a table tag around the entire 2d array,
-  //   tr tags around each row, and td tags around each value.
-  //   You may use a helper method
-  //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
-  //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
-  // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String out = "<table>";
+
+    for(int i = 0; i<nums.length; i++)
+    {
+      out += "<tr>";
+      for(int j = 0; j<nums[i].length; j++)
+      {
+        out+="<td>"+nums[i][j]+"</td>";
+      }
+      out += "</tr>";
+    }
+    out += "</table>";
+
+    return out;
   }
 }
