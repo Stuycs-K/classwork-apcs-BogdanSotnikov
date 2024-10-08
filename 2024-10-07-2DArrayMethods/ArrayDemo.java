@@ -13,6 +13,12 @@ public class ArrayDemo{
     System.out.println("\n countZeros2D test:");
     int[][] tested = new int[3][3];
     System.out.println("countZeros2D("+Arrays.deepToString(tested)+") = "+countZeros2D(tested));
+    tested = new int[][] {{1, 3, 4}, {0, 0, 0}, {1, 0, 9}};
+    System.out.println("countZeros2D("+Arrays.deepToString(tested)+") = "+countZeros2D(tested));
+    tested = new int[][] {{0}, {0, 0, 0}, {1, 0}};
+    System.out.println("countZeros2D("+Arrays.deepToString(tested)+") = "+countZeros2D(tested));
+    tested = new int[][] {{1, 3, 4}, {5, 5, 5}, {1, 2, 9}};
+    System.out.println("countZeros2D("+Arrays.deepToString(tested)+") = "+countZeros2D(tested));
   }
 
   public static String arrToString(int[] ary){
@@ -48,9 +54,17 @@ public class ArrayDemo{
       return s+"]";
     }
 
-  //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int count = 0;
+
+    for(int i = 0; i<nums.length;i++)
+    {
+      for (int j = 0; j<nums[i].length; j++)
+        if (nums[i][j]==0)
+          count++;
+    }
+
+    return count;
   }
 
 
