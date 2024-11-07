@@ -68,7 +68,7 @@ public class TriangleTester
 
     public static void main (String[] args)
     {
-      System.out.println("Number of triangles by countTrianglesA: "+countTrianglesA("inputTri.txt"));
-      System.out.println("Number of triangles by countTrianglesB: "+countTrianglesB("inputTri.txt"));
+      System.out.println(countTrianglesA("inputTri.txt"));
+      System.out.println(countTrianglesB("inputTri.txt"));
     }
 }
