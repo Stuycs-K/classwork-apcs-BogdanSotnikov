@@ -12,9 +12,9 @@ public class Driver
     Bird b = new Bird("squawk",1,"Jim",12,"black");
     b.speak();
 
-    Animal a1 = new Animal("K", 1, "G");
-    Bird b1 = new Bird("K", 1, "G", 30, "A");
+    Animal a1 = new Animal("al", 1, "Alpha1");
+    Bird b1 = new Bird("br", 1, "Bravo1", 30, "green");
     //Bird b2 = new Animal("K", 1, "G"); <- incompatible types: Animal cannot be converted to Bird
-    Animal a2 = new Bird("K", 1, "G", 30, "A");
+    Animal a2 = new Bird("apf", 1, "Alpha2", 30, "red");
   }
 }
