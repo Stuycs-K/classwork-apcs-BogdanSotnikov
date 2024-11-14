@@ -33,7 +33,28 @@ public class ArrayListPractice
       reversed.add(original.get(i));
     }
     return reversed;
-}
+  }
+
+  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
+    ArrayList<String> longer = new ArrayList(0);
+    ArrayList<String> shorter = new ArrayList(0);
+    ArrayList<String> mixed = new ArrayList(0);
+
+    if (a.size()>b.size())
+    {
+      longer = a;
+      shorter = b;
+    }
+    else
+    {
+      longer = b;
+      shorter = a;
+    }
+
+    for (; ; ) {
+
+    }
+  }
 
   public static void main(String[] args) {
     /*
