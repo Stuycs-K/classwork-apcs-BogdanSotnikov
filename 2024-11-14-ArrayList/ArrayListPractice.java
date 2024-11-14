@@ -26,6 +26,15 @@ public class ArrayListPractice
     }
   }
 
+  public static ArrayList<String> makeReversedList( ArrayList<String> original){
+  //return a new ArrayList that is in the reversed order of the original.
+    ArrayList<String>reversed = new ArrayList<String>(original.size());
+    for (int i = original.size()-1; i >= 0; i -- ) {
+      reversed.add(original.get(i));
+    }
+    return reversed;
+}
+
   public static void main(String[] args) {
     /*
     System.out.println(createRandomArray(5));
@@ -33,11 +42,16 @@ public class ArrayListPractice
     System.out.println(createRandomArray(0));
     System.out.println(createRandomArray(100));
     */
-
+    /*
     //test replaceEmpty
     ArrayList<String> a1 = createRandomArray(100);
     System.out.println(a1);
     replaceEmpty(a1);
-    System.out.println(a1);
+    System.out.println(a1);*/
+
+    //test makeReversedList
+    ArrayList<String> a2 = createRandomArray(100);
+    System.out.println(a2);
+    System.out.println(makeReversedList(a2));
   }
 }
