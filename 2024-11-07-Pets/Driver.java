@@ -16,5 +16,9 @@ public class Driver
     Bird b1 = new Bird("br", 1, "Bravo1", 30, "green");
     //Bird b2 = new Animal("K", 1, "G"); <- incompatible types: Animal cannot be converted to Bird
     Animal a2 = new Bird("apf", 1, "Alpha2", 30, "red");
+
+    a1.speak();
+    b1.speak();
+    a2.speak();
   }
 }
