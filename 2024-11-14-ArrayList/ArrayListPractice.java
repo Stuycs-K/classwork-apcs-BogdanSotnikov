@@ -51,28 +51,59 @@ public class ArrayListPractice
       shorter = a;
     }
 
-    for (; ; ) {
-
+    while(shorter.size()>0)
+    {
+      mixed.add(a.get(0));
+      mixed.add(b.get(0));
+      a.remove(0);
+      b.remove(0);
     }
+    for (int i = 0; i<longer.size(); i++)
+    {
+      mixed.add(longer.get(i));
+    }
+
+    return mixed;
   }
 
   public static void main(String[] args) {
-    /*
     System.out.println(createRandomArray(5));
     System.out.println(createRandomArray(1));
     System.out.println(createRandomArray(0));
-    System.out.println(createRandomArray(100));
-    */
-    /*
+    System.out.println(createRandomArray(400000));
+
     //test replaceEmpty
-    ArrayList<String> a1 = createRandomArray(100);
+    ArrayList<String> a1 = createRandomArray(400000);
     System.out.println(a1);
     replaceEmpty(a1);
-    System.out.println(a1);*/
+    System.out.println(a1);
 
     //test makeReversedList
-    ArrayList<String> a2 = createRandomArray(100);
+    ArrayList<String> a2 = createRandomArray(400000);
     System.out.println(a2);
     System.out.println(makeReversedList(a2));
+
+    //test mixLists
+    ArrayList<String> a3 = createRandomArray(40000);
+    ArrayList<String> a4 = createRandomArray(40000);
+    replaceEmpty(a3);
+    replaceEmpty(a4);
+    System.out.println(a3);
+    System.out.println(a4);
+    System.out.println(mixLists(a3,a4));
+    a3 = createRandomArray(20000);
+    a4 = createRandomArray(40000);
+    replaceEmpty(a3);
+    replaceEmpty(a4);
+    System.out.println(a3);
+    System.out.println(a4);
+    System.out.println(mixLists(a3,a4));
+    a3 = createRandomArray(40000);
+    a4 = createRandomArray(20000);
+    replaceEmpty(a3);
+    replaceEmpty(a4);
+    System.out.println(a3);
+    System.out.println(a4);
+    System.out.println(mixLists(a3,a4));
   }
 }
