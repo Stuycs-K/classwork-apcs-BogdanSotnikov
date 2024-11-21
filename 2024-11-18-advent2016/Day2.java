@@ -19,16 +19,16 @@ public class Day2
         String line =input.nextLine();
         for (int j = 0; j<line.length(); j++)
         {
-          if (line.charAt(j) == 'U' && current < 7)
-            current +=3;
-          else if (line.charAt(j) == 'D' && current > 3)
+          if (line.charAt(j) == 'U' && current > 3)
             current -=3;
+          else if (line.charAt(j) == 'D' && current < 7)
+            current +=3;
           else if (line.charAt(j) == 'L' && current != 4 && current != 1 && current != 7)
             current -= 1;
           else if (line.charAt(j) == 'R' && current != 6 && current != 3 && current != 9)
             current += 1;
         }
-        code += ""+current;
+        code += current;
       }
     }
     catch (FileNotFoundException ex)
