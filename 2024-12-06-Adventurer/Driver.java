@@ -10,6 +10,10 @@ class Driver
     System.out.println(john+" now has "+john.getHP()+" HP.");
     System.out.println(john.support());
     System.out.println(john+" now has "+john.getHP()+" HP.");
+    System.out.println(john.support(paul));
+    System.out.println(paul+" now has "+paul.getHP()+" HP.");
+    System.out.println(john.specialAttack(paul));
+    System.out.println(paul+" now has "+paul.getHP()+" HP.");
     System.out.println(paul.specialAttack(paul));
     System.out.println(paul+" now has "+paul.getHP()+" HP.");
   }
