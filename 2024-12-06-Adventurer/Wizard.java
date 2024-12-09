@@ -13,7 +13,7 @@ public class Wizard extends Adventurer
 
   public String getSpecialName()
   {
-    return "fireball";
+    return "mana";
   }
 
   public int getSpecial()
@@ -51,6 +51,9 @@ public class Wizard extends Adventurer
   public String support()
   {
     setHP(getHP()+1);
+    if (getHP()>getmaxHP())
+      settHP(getmaxHP());
+    setSpecial(getSpecial()+2);
     return this + " heals self by 1 HP.";
   }
 
@@ -60,7 +63,7 @@ public class Wizard extends Adventurer
     {
       other.applyDamage(4);
       setSpecial(getSpecial()-1);
-      return this+" uses "+getSpecialName()+" on "+other+". Deals 4 damage.";
+      return this+" uses "+getSpecialName()+" to attack "+other+". Deals 4 damage.";
     }
     return "Not enough mana to use "+getSpecialName()+".";
   }
