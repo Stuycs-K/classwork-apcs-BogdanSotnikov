@@ -28,17 +28,19 @@ class Driver
         player.support();
 
       enemyTurn();
+      stats();
     }
 
   }
 
   public static void enemyTurn()
   {
-    
+
   }
 
   public static void stats()
   {
-
+    System.out.println("\n" + player + " has " + player.getHP() + " hit points and " + player.getSpecial() + " " + player.getSpecialName());
+    System.out.println(enemy + " has " + enemy.getHP() + " hit points and " + enemy.getSpecial() + " " + enemy.getSpecialName()+"\n");
   }
 }
