@@ -1,31 +1,37 @@
-class Driver
+import java.util.Scanner;
+
+class Game
 {
-  String[] names = String[]{"John", "Dave", "Bob"}
+  static String[] names = new String[]{"John", "Dave", "Bob", "Jimmy"};
+  static Adventurer player, enemy;
 
   public static void main(String[] args) {
     Scanner userInput = new Scanner(System.in);
     System.out.println("Enter username");
     String userName = userInput.nextLine();
-    player Adventurer = new CodeWarrior(userName);
-    enemy Adventurer = new Wizard((int)(Math.random*names.length));
+    player = new CodeWarrior(userName);
+    enemy = new Wizard(names[(int)(Math.random()*names.length)]);
     System.out.println(userName + " vs " + enemy);
-    if ((int)Math.random*2)
+    if ((int)(Math.random()*2) == 0)
         enemyTurn();
+        stats();
     while(player.getHP() > 0 && enemy.getHP() > 0)
     {
       System.out.println("Type: (a)ttack / (sp)ecial / (su)pport");
       String input = userInput.nextLine();
-      while (input.equals("a") || input.equals("attack") || input.equals("sp") || input.equals("special") || input.equals("su") || input.equals("support"))
+      while (!(input.equals("quit") || input.equals("a") || input.equals("attack") || input.equals("sp") || input.equals("special") || input.equals("su") || input.equals("support")))
       {
         System.out.println("Type: (a)ttack / (sp)ecial / (su)pport");
         input = userInput.nextLine();
       }
       if (input.equals("a") || input.equals("attack"))
-        player.attack(enemy);
+        System.out.println(player.attack(enemy));
       else if (input.equals("sp") || input.equals("special"))
-        player.specialAttack(enemy);
+        System.out.println(player.specialAttack(enemy));
       else if (input.equals("su") || input.equals("support"))
-        player.support();
+        System.out.println(player.support());
+      else if (input.equals("quit"))
+        System.exit(0);
 
       enemyTurn();
       stats();
@@ -35,7 +41,13 @@ class Driver
 
   public static void enemyTurn()
   {
-
+    if (enemy.getHP()>3)
+      if (player.getHP()>3 && enemy.getSpecial()>0)
+        System.out.println(enemy.specialAttack(player));
+      else
+        System.out.println(enemy.attack(player));
+    else
+      System.out.println(enemy.support());
   }
 
   public static void stats()

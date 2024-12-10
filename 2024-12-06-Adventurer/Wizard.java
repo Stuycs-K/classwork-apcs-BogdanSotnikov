@@ -1,14 +1,17 @@
 public class Wizard extends Adventurer
 {
-  private int maxMana = 30;
-  private int mana = maxMana;
+  private int mana, maxMana;
 
   public Wizard(String name){
       super(name, 8);
+      maxMana = 4;
+      mana = 1;
   }
 
   public Wizard(String name, int hp){
       super(name, hp);
+      maxMana = 4;
+      mana = 1;
   }
 
   public String getSpecialName()
@@ -52,9 +55,9 @@ public class Wizard extends Adventurer
   {
     setHP(getHP()+1);
     if (getHP()>getmaxHP())
-      settHP(getmaxHP());
+      setHP(getmaxHP());
     setSpecial(getSpecial()+2);
-    return this + " heals self by 1 HP.";
+    return this + " heals self by 1 HP. Gains 2 "+getSpecialName();
   }
 
   public String specialAttack(Adventurer other)
@@ -65,6 +68,6 @@ public class Wizard extends Adventurer
       setSpecial(getSpecial()-1);
       return this+" uses "+getSpecialName()+" to attack "+other+". Deals 4 damage.";
     }
-    return "Not enough mana to use "+getSpecialName()+".";
+    return "Not enough "+getSpecialName()+".";
   }
 }
